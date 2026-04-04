@@ -94,7 +94,7 @@ function App() {
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo + Title - Reduced by exactly 50% (no red error) */}
+          {/* Logo + Title - Already 50% smaller */}
           <a href="#home" className="flex items-center gap-4 hover:opacity-90 transition">
             <img 
               src="/logo.png" 
@@ -119,8 +119,12 @@ function App() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="#registration" className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-8 py-3 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base">
-              Register Now
+            {/* REGISTER BUTTON - Now says "Register" only + smaller size */}
+            <a 
+              href="#registration" 
+              className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-6 py-2.5 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base"
+            >
+              Register
             </a>
 
             <button
@@ -339,13 +343,15 @@ function App() {
         </div>
       </section>
 
-      {/* Registration */}
+      {/* Registration - Box reduced by 40% */}
       <section id="registration" className="py-20 bg-zinc-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-10">Register for LIMITLESS 2026</h2>
-          <div className="bg-white p-10 rounded-3xl shadow-xl max-w-2xl mx-auto">
+          
+          {/* Box size reduced by 40% (max-w-2xl → max-w-md + less padding) */}
+          <div className="bg-white p-8 rounded-3xl shadow-xl max-w-md mx-auto">
             <h3 className="text-2xl font-bold mb-8">Payment Details</h3>
-            <div className="bg-emerald-50 p-8 rounded-2xl text-left mb-10">
+            <div className="bg-emerald-50 p-6 rounded-2xl text-left mb-10">
               <p><strong>Bank:</strong> Fidelity Bank</p>
               <p><strong>Account Number:</strong> 6060362529</p>
               <p><strong>Account Name:</strong> Diocese of Niger Delta North Anglican Youth Fellowship</p>
@@ -367,7 +373,7 @@ function App() {
         <source src="/YOUR_THEME_SONG.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Floating Play/Pause Button - Bottom Left */}
+      {/* Floating Play/Pause Button */}
       <button
         onClick={toggleMusic}
         className="fixed bottom-8 left-8 z-[9999] flex items-center justify-center w-16 h-16 bg-white shadow-2xl border-2 border-emerald-600 rounded-3xl hover:bg-emerald-600 hover:text-white hover:scale-110 active:scale-95 transition-all text-emerald-600"
