@@ -6,7 +6,7 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [showSpeakers, setShowSpeakers] = useState(false);   // Toggle for speaker flyers
+  const [showSpeakers, setShowSpeakers] = useState(false);
 
   // Countdown Timer
   useEffect(() => {
@@ -91,14 +91,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
-      {/* Navbar - Fixed for Mobile + Bigger Logo */}
+      {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+          {/* Logo + Title - Bigger Logo */}
           <a href="#home" className="flex items-center gap-4 hover:opacity-90 transition">
             <img 
               src="/logo.png" 
               alt="Diocese Logo" 
-              className="h-20 w-auto object-contain md:h-24"   // Bigger logo
+              className="h-24 w-auto object-contain md:h-28" 
             />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-emerald-600 tracking-tighter">LIMITLESS</h1>
@@ -117,16 +118,16 @@ function App() {
             <a href="#youthstars" className="hover:text-emerald-600 transition">Empowerment</a>
           </div>
 
-          <div className="flex items-center gap-4">
-            {/* Play/Pause Button - Fixed overlap on mobile */}
-            <button
-              onClick={toggleMusic}
-              className="flex items-center gap-2 px-5 py-3 border-2 border-emerald-600 rounded-3xl font-semibold hover:bg-emerald-600 hover:text-white transition text-sm md:text-base md:px-6"
-            >
-              <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-              <span className="hidden md:inline">{isPlaying ? 'Pause' : 'Play Theme'}</span>
-            </button>
+          {/* Play/Pause Button - Moved to bottom left */}
+          <button
+            onClick={toggleMusic}
+            className="absolute bottom-4 left-6 md:static md:bottom-auto md:left-auto flex items-center justify-center w-12 h-12 md:w-auto md:h-auto md:px-6 md:py-3 border-2 border-emerald-600 rounded-3xl font-semibold hover:bg-emerald-600 hover:text-white transition text-emerald-600 hover:text-white"
+          >
+            <i className={`fas text-2xl ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+            <span className="hidden md:inline ml-2">{isPlaying ? 'Pause Theme' : 'Play Theme'}</span>
+          </button>
 
+          <div className="flex items-center gap-4">
             <a href="#registration" className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-8 py-3 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base">
               Register Now
             </a>
@@ -193,7 +194,7 @@ function App() {
         </div>
       </section>
 
-      {/* Meet Our Speakers - With Hide/Show Toggle */}
+      {/* Meet Our Speakers */}
       <section id="speakers" className="py-20 bg-zinc-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex justify-center items-center gap-4 mb-8">
@@ -202,33 +203,33 @@ function App() {
               onClick={() => setShowSpeakers(!showSpeakers)}
               className="text-sm px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full transition"
             >
-              {showSpeakers ? 'Hide' : 'Show'} Other Flyers
+              {showSpeakers ? 'Hide Others' : 'Show Others'}
             </button>
           </div>
 
-          {/* Main Speaker Flyer - Always visible */}
+          {/* Main Speaker Flyer */}
           <div className="max-w-2xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
             <img src="/main-speaker-flyer.jpg" alt="Main Speaker" className="w-full" />
           </div>
 
-          {/* Other Speaker Flyers - Hidden until toggled */}
+          {/* Other Speakers - Hidden by default */}
           {showSpeakers && (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-lg h-80 flex items-center justify-center border-2 border-dashed border-zinc-300">
-                  <p className="text-zinc-400 text-center">Speaker Flyer {i+2}<br/>Coming Soon</p>
+                  <p className="text-zinc-400 text-center">Speaker {i+2}<br/>Coming Soon</p>
                 </div>
               ))}
             </div>
           )}
 
           {!showSpeakers && (
-            <p className="text-zinc-500 italic mt-8">Click the button above to show other speaker flyers when ready</p>
+            <p className="text-zinc-500 italic mt-8">Click "Show Others" above to see other speakers when ready</p>
           )}
         </div>
       </section>
 
-      {/* Videos Section (No thumbnails as requested) */}
+      {/* Videos Section with Thumbnails */}
       <section id="videos" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -247,6 +248,7 @@ function App() {
                   src={video.file}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                   muted
+                  poster={`thumb-${video.file.replace('.mp4', '.jpg')}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6">
                   <div>
@@ -369,7 +371,7 @@ function App() {
         </div>
       </section>
 
-      {/* Hidden Audio - Your new theme song */}
+      {/* Hidden Audio */}
       <audio id="themeSong" loop>
         <source src="/YOUR_THEME_SONG.mp3" type="audio/mpeg" />
       </audio>
