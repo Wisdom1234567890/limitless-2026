@@ -91,15 +91,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
-      {/* Navbar */}
+      {/* Navbar - Clean, no play button here anymore */}
       <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
-          {/* Logo + Title - Bigger Logo */}
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Logo + Title - Increased by 30% */}
           <a href="#home" className="flex items-center gap-4 hover:opacity-90 transition">
             <img 
               src="/logo.png" 
               alt="Diocese Logo" 
-              className="h-24 w-auto object-contain md:h-28" 
+              className="h-32 w-auto object-contain md:h-36" 
             />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-emerald-600 tracking-tighter">LIMITLESS</h1>
@@ -117,15 +117,6 @@ function App() {
             <a href="#skills" className="hover:text-emerald-600 transition">Skills</a>
             <a href="#youthstars" className="hover:text-emerald-600 transition">Empowerment</a>
           </div>
-
-          {/* Play/Pause Button - Moved to bottom left */}
-          <button
-            onClick={toggleMusic}
-            className="absolute bottom-4 left-6 md:static md:bottom-auto md:left-auto flex items-center justify-center w-12 h-12 md:w-auto md:h-auto md:px-6 md:py-3 border-2 border-emerald-600 rounded-3xl font-semibold hover:bg-emerald-600 hover:text-white transition text-emerald-600 hover:text-white"
-          >
-            <i className={`fas text-2xl ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-            <span className="hidden md:inline ml-2">{isPlaying ? 'Pause Theme' : 'Play Theme'}</span>
-          </button>
 
           <div className="flex items-center gap-4">
             <a href="#registration" className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-8 py-3 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base">
@@ -375,6 +366,15 @@ function App() {
       <audio id="themeSong" loop>
         <source src="/YOUR_THEME_SONG.mp3" type="audio/mpeg" />
       </audio>
+
+      {/* Floating Play/Pause Button - Bottom Left of the entire page */}
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-8 left-8 z-[9999] flex items-center justify-center w-16 h-16 bg-white shadow-2xl border-2 border-emerald-600 rounded-3xl hover:bg-emerald-600 hover:text-white hover:scale-110 active:scale-95 transition-all text-emerald-600"
+        title={isPlaying ? "Pause Theme Song" : "Play Theme Song"}
+      >
+        <i className={`fas text-4xl ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+      </button>
 
       {/* Back to Top Button */}
       {showBackToTop && (
