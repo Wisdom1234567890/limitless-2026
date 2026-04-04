@@ -91,15 +91,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
-      {/* Navbar - Clean, no play button here anymore */}
+      {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo + Title - Increased by 30% */}
+          {/* Logo + Title - Reduced by exactly 50% (no red error) */}
           <a href="#home" className="flex items-center gap-4 hover:opacity-90 transition">
             <img 
               src="/logo.png" 
               alt="Diocese Logo" 
-              className="h-32 w-auto object-contain md:h-36" 
+              className="h-16 w-auto object-contain md:h-[72px]" 
             />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-emerald-600 tracking-tighter">LIMITLESS</h1>
@@ -367,7 +367,7 @@ function App() {
         <source src="/YOUR_THEME_SONG.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Floating Play/Pause Button - Bottom Left of the entire page */}
+      {/* Floating Play/Pause Button - Bottom Left */}
       <button
         onClick={toggleMusic}
         className="fixed bottom-8 left-8 z-[9999] flex items-center justify-center w-16 h-16 bg-white shadow-2xl border-2 border-emerald-600 rounded-3xl hover:bg-emerald-600 hover:text-white hover:scale-110 active:scale-95 transition-all text-emerald-600"
