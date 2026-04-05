@@ -355,7 +355,7 @@ function App() {
               <p><strong>Bank:</strong> Fidelity Bank</p>
               <p><strong>Account Number:</strong> 6060362529</p>
               <p><strong>Account Name:</strong> Diocese of Niger Delta North Anglican Youth Fellowship</p>
-              <p className="mt-4 text-sm text-emerald-700 font-medium">Registration Fee: ₦5,000</p>
+              <p className="mt-4 text-sm text-emerald-700 font-medium">Registration Fee: ₦2,000</p>
             </div>
             <a
               href="https://docs.google.com/forms/d/1und_tEmjtt2fbrkfBP5-EsokEjKLLjsavIO6XNYBCqw/edit?usp=drivesdk"
