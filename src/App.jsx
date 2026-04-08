@@ -207,6 +207,15 @@ function App() {
             <img src="/main-speaker-flyer.jpg" alt="Main Speaker" className="w-full" />
           </div>
 
+          {/* SECOND MEET OUR SPEAKER FLYER - Added here */}
+          <div className="max-w-2xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
+            <img 
+              src="/second-speaker-flyer.jpg" 
+              alt="Second Speaker" 
+              className="w-full" 
+            />
+          </div>
+
           {/* Other Speakers - Hidden by default */}
           {showSpeakers && (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
