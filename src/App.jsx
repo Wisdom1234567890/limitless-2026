@@ -207,7 +207,7 @@ function App() {
             <img src="/main-speaker-flyer.jpg" alt="Main Speaker" className="w-full" />
           </div>
 
-          {/* SECOND MEET OUR SPEAKER FLYER - Added here */}
+          {/* Second Speaker Flyer */}
           <div className="max-w-2xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
             <img 
               src="/second-speaker-flyer.jpg" 
@@ -216,12 +216,12 @@ function App() {
             />
           </div>
 
-          {/* Other Speakers - Hidden by default */}
+          {/* Other Speakers - Hidden by default (now starts from Speaker 3) */}
           {showSpeakers && (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[...Array(4)].map((_, i) => (
+              {[...Array(3)].map((_, i) => (
                 <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-lg h-80 flex items-center justify-center border-2 border-dashed border-zinc-300">
-                  <p className="text-zinc-400 text-center">Speaker {i+2}<br/>Coming Soon</p>
+                  <p className="text-zinc-400 text-center">Speaker {i+3}<br/>Coming Soon</p>
                 </div>
               ))}
             </div>
