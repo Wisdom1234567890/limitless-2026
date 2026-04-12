@@ -52,7 +52,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 🔥 UPDATED: 9 Speaker Flyers (2 featured + 7 others)
+  // 🔥 UPDATED: 11 Speaker Flyers (2 featured + 9 others)
   const speakersOthers = [
     { id: 3, title: "Speaker 3", image: "/speaker-flyer3.jpg" },
     { id: 4, title: "Speaker 4", image: "/speaker-flyer4.jpg" },
@@ -61,6 +61,8 @@ function App() {
     { id: 7, title: "Speaker 7", image: "/speaker-flyer7.jpg" },
     { id: 8, title: "Speaker 8", image: "/speaker-flyer8.jpg" },
     { id: 9, title: "Speaker 9", image: "/speaker-flyer9.jpg" },
+    { id: 10, title: "Speaker 10", image: "/speaker-flyer10.jpg" },
+    { id: 11, title: "Speaker 11", image: "/speaker-flyer11.jpg" },
   ];
 
   const videos = [
@@ -105,20 +107,14 @@ function App() {
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo + Title */}
           <a href="#home" className="flex items-center gap-4 hover:opacity-90 transition">
-            <img 
-              src="/logo.png" 
-              alt="Diocese Logo" 
-              className="h-16 w-auto object-contain md:h-[72px]" 
-            />
+            <img src="/logo.png" alt="Diocese Logo" className="h-16 w-auto object-contain md:h-[72px]" />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-emerald-600 tracking-tighter">LIMITLESS</h1>
               <p className="text-xs md:text-sm text-zinc-500 -mt-1">2026 YOUTH STARS CONFERENCE</p>
             </div>
           </a>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 font-medium">
             <a href="#home" className="hover:text-emerald-600 transition">Home</a>
             <a href="#countdown" className="hover:text-emerald-600 transition">Countdown</a>
@@ -130,23 +126,16 @@ function App() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a 
-              href="#registration" 
-              className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-6 py-2.5 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base"
-            >
+            <a href="#registration" className="bg-gradient-to-r from-yellow-400 to-emerald-600 text-black px-6 py-2.5 rounded-3xl font-bold hover:scale-105 transition text-sm md:text-base">
               Register
             </a>
 
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 text-3xl"
-            >
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-3 text-3xl">
               {isMobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t py-6">
             <div className="flex flex-col gap-6 px-8 text-lg font-medium">
@@ -199,7 +188,7 @@ function App() {
         </div>
       </section>
 
-      {/* Meet Our Speakers - NOW WITH 9 FLYERS */}
+      {/* Meet Our Speakers - 11 FLYERS TOTAL */}
       <section id="speakers" className="py-20 bg-zinc-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex justify-center items-center gap-4 mb-8">
@@ -212,30 +201,19 @@ function App() {
             </button>
           </div>
 
-          {/* Main Speaker Flyer */}
           <div className="max-w-2xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
             <img src="/main-speaker-flyer.jpg" alt="Main Speaker" className="w-full" />
           </div>
 
-          {/* Second Speaker Flyer */}
           <div className="max-w-2xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-2xl">
-            <img 
-              src="/second-speaker-flyer.jpg" 
-              alt="Second Speaker" 
-              className="w-full" 
-            />
+            <img src="/second-speaker-flyer.jpg" alt="Second Speaker" className="w-full" />
           </div>
 
-          {/* 7 Additional Speakers */}
           {showSpeakers && (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {speakersOthers.map((speaker) => (
                 <div key={speaker.id} className="bg-white rounded-3xl overflow-hidden shadow-lg">
-                  <img 
-                    src={speaker.image} 
-                    alt={speaker.title} 
-                    className="w-full h-80 object-cover"
-                  />
+                  <img src={speaker.image} alt={speaker.title} className="w-full h-80 object-cover" />
                 </div>
               ))}
             </div>
@@ -243,7 +221,7 @@ function App() {
 
           {!showSpeakers && (
             <p className="text-zinc-500 italic mt-8">
-              Click "Show Others" above to see the remaining 7 speakers
+              Click "Show Others" above to see the remaining 9 speakers
             </p>
           )}
         </div>
@@ -372,7 +350,6 @@ function App() {
       <section id="registration" className="py-20 bg-zinc-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-10">Register for LIMITLESS 2026</h2>
-          
           <div className="bg-white p-8 rounded-3xl shadow-xl max-w-md mx-auto">
             <h3 className="text-2xl font-bold mb-8">Payment Details</h3>
             <div className="bg-emerald-50 p-6 rounded-2xl text-left mb-10">
