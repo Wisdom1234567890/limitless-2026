@@ -52,7 +52,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 🔥 UPDATED: 11 Speaker Flyers (2 featured + 9 others)
+  // 🔥 UPDATED: 12 Speaker Flyers (2 featured + 10 others)
   const speakersOthers = [
     { id: 3, title: "Speaker 3", image: "/speaker-flyer3.jpg" },
     { id: 4, title: "Speaker 4", image: "/speaker-flyer4.jpg" },
@@ -63,6 +63,7 @@ function App() {
     { id: 9, title: "Speaker 9", image: "/speaker-flyer9.jpg" },
     { id: 10, title: "Speaker 10", image: "/speaker-flyer10.jpg" },
     { id: 11, title: "Speaker 11", image: "/speaker-flyer11.jpg" },
+    { id: 12, title: "Speaker 12", image: "/speaker-flyer12.jpg" },   // ← New 12th flyer added here
   ];
 
   const videos = [
@@ -188,7 +189,7 @@ function App() {
         </div>
       </section>
 
-      {/* Meet Our Speakers - 11 FLYERS TOTAL */}
+      {/* Meet Our Speakers - 12 FLYERS TOTAL */}
       <section id="speakers" className="py-20 bg-zinc-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex justify-center items-center gap-4 mb-8">
@@ -221,7 +222,7 @@ function App() {
 
           {!showSpeakers && (
             <p className="text-zinc-500 italic mt-8">
-              Click "Show Others" above to see the remaining 9 speakers
+              Click "Show Others" above to see the remaining 10 speakers
             </p>
           )}
         </div>
